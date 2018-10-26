@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/hobby"
+            android:title="蛤蛤派">
+            <menu>
+                <item android:id="@+id/film"
+                    android:title="蛤一"/>
+                <item android:id="@+id/mall"
+                    android:title="蛤二"/>
+            </menu>
+        </item>
+    </group>
+    <group  android:checkableBehavior="single">
+        <item android:id="@+id/people"
+            android:title="刁刁派">
+            <menu>
+                <item android:id="@+id/wallet"
+                    android:title="刁一"/>
+                <item android:id="@+id/collect"
+                    android:title="刁二"/>
+                <item android:id="@+id/setting"
+                    android:title="刁三"/>
+            </menu>
+        </item>
+    </group>
+</menu>

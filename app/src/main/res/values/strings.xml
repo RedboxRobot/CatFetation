@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">孕猫猫</string>
+    <string name="action_settings">设置</string>
+
+    <string name="openString">打开</string>
+    <string name="closeString">关闭</string>
+
+    <string name="confirm">"确定"</string>
+    <string name="menu_save">"保存"</string>
+
+    <string name="can_not_less_number">"请输入不少于"</string>
+    <string name="can_not_be_null">"请输入"</string>
+    <string name="phone_number">"手机号"</string>
+    <string name="password">"密码"</string>
+    <string name="some_kind_of_name">"名称"</string>
+    <string name="verify_code">"验证码"</string>
+    <string name="old_password">"旧密码"</string>
+    <string name="new_password">"新密码"</string>
+    <string name="search">"搜索"</string>
+    <string name="suggestions">"意见"</string>
+    <string name="nickname">"昵称"</string>
+    <string name="name">"姓名"</string>
+    <string name="error">"错误"</string>
+
+
+    <string name="add_new_cat_title">"新增一只喵喵"</string>
+    <string name="user_name_regular">"仅支持输入中英文及数字，字符限制为1~16字符"</string>
+</resources>

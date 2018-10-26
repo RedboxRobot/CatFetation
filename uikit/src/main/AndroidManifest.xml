@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.unlimiteduniverse.uikit" >
+
+
+    <application >
+        <provider
+            android:name="com.photopicker.utils.PhotoFileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                       android:resource="@xml/__picker_provider_paths"/>
+        </provider>
+    </application>
+</manifest>

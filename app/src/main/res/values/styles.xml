@@ -1,0 +1,57 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/window_background</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--<item name="toolbarNavigationButtonStyle">@style/toolbarNavigationStyle</item>-->
+    </style>
+
+    <style name="AppTheme.NoActionBar.FullScreen" parent="AppTheme.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="toolbarNavigationStyle" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingRight">@dimen/toolbar_title_padding</item>
+        <item name="android:paddingLeft">@dimen/toolbar_title_padding</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="ActionBarTitle" parent="android:Widget.TextView">
+        <!-- Customizes the color of the action bar title-->
+        <item name="android:textColor">@color/color_white</item>
+
+        <!-- Customizes the size of the action bar title-->
+        <item name="android:textSize">@dimen/text_size_18</item>
+    </style>
+
+    <style name="ActionBarMenuStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">@color/color_white</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextStyle</item>
+    </style>
+
+    <style name="MenuTextStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+
+    <!-- Splash theme -->
+    <style name="SplashTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
+</resources>

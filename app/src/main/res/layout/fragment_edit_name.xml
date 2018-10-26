@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:xedittext="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar"/>
+    
+    <View
+        android:layout_marginTop="10dp"
+        android:background="@color/items_divider_color"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <com.delicloud.app.smartprint.view.widgets.XEditText
+        android:id="@+id/device_name_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/high_level_white_background_color"
+        android:drawableEnd="@drawable/delete"
+        android:padding="15dp"
+        android:singleLine="true"
+        android:inputType="text"
+        android:maxLength="16"
+        android:textColorHint="@color/low_level_text_color"
+        android:textCursorDrawable="@drawable/color_cursor_drawable"
+        android:textSize="15sp"
+        android:textColor="@color/high_level_text_color"
+        xedittext:hintText="@string/pls_input_department_name"
+        xedittext:hintTextSize="15sp"/>
+
+    <View
+        android:background="@color/items_divider_color"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@color/low_level_text_color"
+        android:text="@string/user_name_regular"
+        android:paddingTop="10dp"
+        android:paddingStart="@dimen/layout_margin_15"
+        android:paddingEnd="@dimen/layout_margin_15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

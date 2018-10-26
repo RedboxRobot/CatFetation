@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/splash_background_color" />
+
+    <item
+        android:top="150dip">
+        <bitmap
+            android:gravity="center_horizontal|top"
+            android:src="@drawable/ic_launcher" />
+    </item>
+
+    <item
+        android:bottom="80dip">
+        <bitmap
+            android:gravity="center_horizontal|bottom"
+            android:src="@drawable/ic_launcher" />
+    </item>
+</layer-list>

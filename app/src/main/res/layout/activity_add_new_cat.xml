@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/add_new_cat_toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <ScrollView
+        app:layout_constraintTop_toBottomOf="@id/add_new_cat_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/avatar_container"
+                android:layout_marginTop="@dimen/layout_margin_15"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
+                android:background="@color/window_background_white"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height_80">
+
+                <TextView
+                    android:id="@+id/txt_avatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="头像"/>
+
+                <com.unlimiteduniverse.cat.fetation.view.CircleImageView
+                    android:id="@+id/civ_avatar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="@dimen/layout_margin_15"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@mipmap/icon_cat"/>
+
+                <View
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:background="@color/colorDivider"/>
+
+                <View
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorDivider"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/name_container"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
+                app:layout_constraintTop_toBottomOf="@id/avatar_container"
+                android:background="@color/window_background_white"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="猫名"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="毛球"/>
+
+                <View
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:background="@color/colorDivider"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/sex_container"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
+                app:layout_constraintTop_toBottomOf="@id/name_container"
+                android:background="@color/window_background_white"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="性别"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="男"/>
+
+                <View
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:background="@color/colorDivider"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/weight_container"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
+                app:layout_constraintTop_toBottomOf="@id/sex_container"
+                android:background="@color/window_background_white"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="体重"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="Kg"/>
+
+                <View
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:background="@color/colorDivider"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/neutering_container"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
+                app:layout_constraintTop_toBottomOf="@id/weight_container"
+                android:background="@color/window_background_white"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="是否绝育"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="未绝育"/>
+
+                <View
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:background="@color/colorDivider"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/birthday_container"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@id/neutering_container"
+                android:background="@color/window_background_white"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="出生日期"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="2017-1-1"/>
+
+                <View
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:background="@color/colorDivider"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/coming_date_container"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
+                app:layout_constraintTop_toBottomOf="@id/birthday_container"
+                android:background="@color/window_background_white"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="到家日期"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="2017-1-1"/>
+
+                <View
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:background="@color/colorDivider"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/describe_container"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
+                app:layout_constraintTop_toBottomOf="@id/coming_date_container"
+                android:background="@color/window_background_white"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:gravity="center_vertical"
+                    android:text="一句话描述"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="@dimen/layout_margin_15"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="@color/colorTextMain"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:text="我是一只可爱的猫猫"/>
+
+                <View
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorDivider"/>
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
