@@ -1,11 +1,12 @@
-package com.unlimiteduniverse.cat.fetation.utils;
+package com.unlimiteduniverse.common.utils;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.widget.TextView;
 
-import com.unlimiteduniverse.cat.fetation.R;
+import com.unlimiteduniverse.common.R;
+
 
 /**
  * Created by Irvin

@@ -13,9 +13,9 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.unlimiteduniverse.cat.fetation.AppCache;
-import com.unlimiteduniverse.cat.fetation.sysutils.SysInfoUtil;
-import com.unlimiteduniverse.cat.fetation.utils.PermissionsUtil;
-import com.unlimiteduniverse.cat.fetation.utils.StatusBarUtil;
+import com.unlimiteduniverse.common.sysutils.SysInfoUtil;
+import com.unlimiteduniverse.common.utils.PermissionsUtil;
+import com.unlimiteduniverse.common.utils.StatusBarUtil;
 
 
 /**

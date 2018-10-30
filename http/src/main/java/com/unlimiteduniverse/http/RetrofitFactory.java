@@ -3,10 +3,9 @@ package com.unlimiteduniverse.http;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.delicloud.app.common.utils.tool.GsonHelper;
-import com.delicloud.app.http.interceptor.HttpLoggingInterceptor;
-import com.delicloud.app.http.interceptor.LocalCacheInterceptor;
-import com.delicloud.app.http.interceptor.RequestInterceptor;
+import com.unlimiteduniverse.common.utils.GsonHelper;
+import com.unlimiteduniverse.http.interceptor.LocalCacheInterceptor;
+import com.unlimiteduniverse.http.interceptor.RequestInterceptor;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -16,8 +15,9 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -79,7 +79,7 @@ public class RetrofitFactory {
                             .baseUrl(baseUrl)
                             .client(getOkHttp(isMultiPart))
                             .addConverterFactory(GsonConverterFactory.create(GsonHelper.gsonWithDate()))
-                            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .build();
                 }
             }

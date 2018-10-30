@@ -1,6 +1,6 @@
 package com.unlimiteduniverse.http.model;
 
-import com.delicloud.app.http.download.RxBus;
+import com.unlimiteduniverse.http.download.RxBus;
 
 import java.io.IOException;
 

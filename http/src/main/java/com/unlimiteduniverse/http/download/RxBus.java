@@ -1,6 +1,6 @@
 package com.unlimiteduniverse.http.download;
 
-import com.delicloud.app.http.model.RxEvent;
+import com.unlimiteduniverse.http.model.RxEvent;
 
 import rx.Observable;
 import rx.subjects.PublishSubject;

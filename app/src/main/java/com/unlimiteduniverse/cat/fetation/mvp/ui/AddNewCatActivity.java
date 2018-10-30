@@ -16,8 +16,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.photopicker.PhotoPicker;
 import com.photopicker.PhotoPreview;
 import com.unlimiteduniverse.cat.fetation.R;
-import com.unlimiteduniverse.cat.fetation.utils.PictureUtils;
 import com.unlimiteduniverse.cat.fetation.view.CircleImageView;
+import com.unlimiteduniverse.common.utils.PictureUtils;
 
 import java.util.List;
 

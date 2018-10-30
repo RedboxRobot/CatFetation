@@ -1,4 +1,4 @@
-package com.unlimiteduniverse.cat.fetation.utils;
+package com.unlimiteduniverse.common.utils;
 
 import android.text.Editable;
 import android.text.TextWatcher;

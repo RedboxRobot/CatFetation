@@ -1,4 +1,4 @@
-package com.unlimiteduniverse.cat.fetation.utils;
+package com.unlimiteduniverse.common.utils;
 
 import android.annotation.SuppressLint;
 import android.content.ContentUris;

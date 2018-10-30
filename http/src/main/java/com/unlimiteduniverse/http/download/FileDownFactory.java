@@ -1,9 +1,8 @@
 package com.unlimiteduniverse.http.download;
 
-import com.delicloud.app.common.constants.CommonConstants;
-import com.delicloud.app.http.model.FileResponseBody;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.unlimiteduniverse.http.model.FileResponseBody;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -13,7 +12,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 
@@ -25,7 +24,7 @@ import rx.Observable;
 public class FileDownFactory {
 
     private volatile static FileDownFactory INSTANCE;
-    private static final String GLOBAL_BASE_URL = CommonConstants.APP_BASE_URL;
+    private static final String GLOBAL_BASE_URL = "";
 
     /**
      * 获取单例
@@ -62,7 +61,7 @@ public class FileDownFactory {
                 .client(client)
                 .baseUrl(GLOBAL_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         DownloadAPI api = retrofit.create(DownloadAPI.class);
         return api.down(url);

@@ -1,7 +1,6 @@
 package com.unlimiteduniverse.http;
 
-import com.delicloud.app.common.constants.CommonConstants;
-import com.delicloud.app.http.base.BaseResponse;
+import com.unlimiteduniverse.http.base.BaseResponse;
 
 import org.json.JSONObject;
 
@@ -16,7 +15,7 @@ import rx.Observable;
  * @time 2018/8/24 9:17
  */
 public interface UploadService {
-    String BASE_URL = CommonConstants.APP_BASE_URL;
+    String BASE_URL = "";
 
     /**
      * 文件上传完成或取消

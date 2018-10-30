@@ -2,7 +2,8 @@ package com.unlimiteduniverse.http.base;
 
 import android.content.Context;
 
-import com.delicloud.app.http.utils.ExceptionHandler;
+import com.unlimiteduniverse.http.utils.ExceptionHandler;
+
 
 /**
  * BaseSubscriber

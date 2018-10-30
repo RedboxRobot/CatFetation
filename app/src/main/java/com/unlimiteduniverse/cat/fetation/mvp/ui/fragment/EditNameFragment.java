@@ -12,9 +12,9 @@ import com.unlimiteduniverse.cat.fetation.AppConstants;
 import com.unlimiteduniverse.cat.fetation.R;
 import com.unlimiteduniverse.cat.fetation.mvp.base.SimpleFragment;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.ContentActivity;
-import com.unlimiteduniverse.cat.fetation.utils.CheckEmptyUtils;
-import com.unlimiteduniverse.cat.fetation.utils.XEditUtils;
 import com.unlimiteduniverse.cat.fetation.view.widgets.XEditText;
+import com.unlimiteduniverse.common.utils.CheckEmptyUtils;
+import com.unlimiteduniverse.common.utils.XEditUtils;
 
 /**
  * @author Irvin

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.unlimiteduniverse.cat.fetation.utils;
+package com.unlimiteduniverse.common.utils;
 
 import android.Manifest;
 import android.Manifest.permission;

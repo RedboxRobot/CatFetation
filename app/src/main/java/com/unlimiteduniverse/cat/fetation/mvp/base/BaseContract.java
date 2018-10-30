@@ -2,10 +2,10 @@ package com.unlimiteduniverse.cat.fetation.mvp.base;
 
 import android.util.Log;
 
-import com.delicloud.app.http.RetrofitFactory;
-import com.delicloud.app.http.base.BaseResponse;
-import com.delicloud.app.http.utils.ExceptionHandler;
-import com.delicloud.app.smartprint.http.PlatformApiService;
+import com.unlimiteduniverse.cat.fetation.http.ApiService;
+import com.unlimiteduniverse.http.RetrofitFactory;
+import com.unlimiteduniverse.http.base.BaseResponse;
+import com.unlimiteduniverse.http.utils.ExceptionHandler;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -23,8 +23,8 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class BaseContract {
-    protected PlatformApiService mPlatformApiService = RetrofitFactory.getInstance()
-        .createService(PlatformApiService.class, false);
+    protected ApiService mPlatformApiService = RetrofitFactory.getInstance()
+        .createService(ApiService.class, false);
 
     protected CompositeDisposable compositeSubscription = new CompositeDisposable();
 

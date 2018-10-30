@@ -8,6 +8,7 @@
     <color name="colorTextSecondary">#666666</color>
     <color name="colorTextLow">#999999</color>
     <color name="colorDivider">#cccccc</color>
+    <color name="editor_text_under_line_normal_color">#333333</color>
 
     <color name="window_background">#f3f3f3</color>
     <color name="window_background_white">#ffffff</color>

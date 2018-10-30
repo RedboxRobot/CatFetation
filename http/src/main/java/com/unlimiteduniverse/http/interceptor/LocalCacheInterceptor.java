@@ -1,7 +1,7 @@
 package com.unlimiteduniverse.http.interceptor;
 
-import com.delicloud.app.common.utils.sys.NetworkUtils;
-import com.delicloud.app.http.HttpLibrary;
+import com.unlimiteduniverse.common.utils.NetworkUtils;
+import com.unlimiteduniverse.http.HttpLibrary;
 
 import java.io.IOException;
 

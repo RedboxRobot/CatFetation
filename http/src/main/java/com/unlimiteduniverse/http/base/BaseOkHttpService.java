@@ -2,8 +2,8 @@ package com.unlimiteduniverse.http.base;
 
 import android.util.Log;
 
-import com.delicloud.app.common.utils.tool.GsonHelper;
-import com.delicloud.app.http.callback.ResultCallback;
+import com.unlimiteduniverse.common.utils.GsonHelper;
+import com.unlimiteduniverse.http.callback.ResultCallback;
 
 import java.io.IOException;
 import java.util.Iterator;

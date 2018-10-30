@@ -1,0 +1,19 @@
+<resources>
+    <string name="english_name">CatFetation</string>
+
+    <string name="can_not_less_number">"请输入不少于"</string>
+    <string name="can_not_be_null">"请输入"</string>
+    <string name="phone_number">"手机号"</string>
+    <string name="password">"密码"</string>
+    <string name="some_kind_of_name">"名称"</string>
+    <string name="verify_code">"验证码"</string>
+    <string name="old_password">"旧密码"</string>
+    <string name="new_password">"新密码"</string>
+    <string name="search">"搜索"</string>
+    <string name="suggestions">"意见"</string>
+    <string name="nickname">"昵称"</string>
+    <string name="name">"姓名"</string>
+    <string name="error">"错误"</string>
+
+    <string name="confirm">"确定"</string>
+</resources>

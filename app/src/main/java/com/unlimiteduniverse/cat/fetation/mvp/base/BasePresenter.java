@@ -3,15 +3,15 @@ package com.unlimiteduniverse.cat.fetation.mvp.base;
 import android.content.Context;
 import android.util.Log;
 
-import com.delicloud.app.common.utils.tool.GsonHelper;
-import com.delicloud.app.common.utils.tool.ProgressUtil;
-import com.delicloud.app.http.RetrofitFactory;
-import com.delicloud.app.http.base.BaseResponse;
-import com.delicloud.app.http.utils.ExceptionHandler;
-import com.delicloud.app.smartprint.http.PlatformApiService;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
+import com.unlimiteduniverse.cat.fetation.http.ApiService;
+import com.unlimiteduniverse.common.utils.GsonHelper;
+import com.unlimiteduniverse.common.utils.ProgressUtil;
+import com.unlimiteduniverse.http.RetrofitFactory;
+import com.unlimiteduniverse.http.base.BaseResponse;
+import com.unlimiteduniverse.http.utils.ExceptionHandler;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -38,14 +38,14 @@ public class BasePresenter<V extends BaseView> extends MvpBasePresenter<V> {
 
     private Context mContext;
 
-    protected PlatformApiService mPlatformApiService;
+    protected ApiService mApiService;
 
     protected CompositeDisposable compositeSubscription;
 
     public BasePresenter(Context context) {
         this.mContext = context;
-        mPlatformApiService = RetrofitFactory.getInstance()
-                .createService(PlatformApiService.class, false);
+        mApiService = RetrofitFactory.getInstance()
+                .createService(ApiService.class, false);
         compositeSubscription = new CompositeDisposable();
     }
 

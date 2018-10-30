@@ -6,8 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.v4.content.FileProvider;
 
-import com.delicloud.app.common.preference.SharedPreferencesUtils;
-import com.delicloud.app.http.download.FileDownFactory;
+import com.unlimiteduniverse.http.download.FileDownFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -61,7 +60,7 @@ public class UpdateManager {
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.setDataAndType(data, "application/vnd.android.package-archive");
                         context.startActivity(intent);
-                        SharedPreferencesUtils.remove(context, "update");
+//                        SharedPreferencesUtils.remove(context, "update");
                     }
 
                     @Override

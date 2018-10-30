@@ -3,11 +3,10 @@ package com.unlimiteduniverse.http.interceptor;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.delicloud.app.common.preference.PlatformPreference;
-import com.delicloud.app.common.utils.decode.SHAUtils;
-import com.delicloud.app.common.utils.sys.PackagesUtils;
-import com.delicloud.app.common.utils.sys.SysInfoUtil;
-import com.delicloud.app.http.HttpLibrary;
+import com.unlimiteduniverse.common.sysutils.PackagesUtils;
+import com.unlimiteduniverse.common.sysutils.SHAUtils;
+import com.unlimiteduniverse.common.sysutils.SysInfoUtil;
+import com.unlimiteduniverse.http.HttpLibrary;
 
 import java.io.File;
 import java.io.IOException;
@@ -90,7 +89,7 @@ public class RequestInterceptor implements Interceptor {
                             getServiceToken(), getServiceUser(), String.valueOf(System.currentTimeMillis())));
                     headersParams.put(DUAGENT, DUAGENT_VALUE);
                     headersParams.put("Connection", "close");
-                    headersParams.put(USER_AGENT, HttpLibrary.getContext().getString(com.delicloud.app.common.R.string.english_name)
+                    headersParams.put(USER_AGENT, HttpLibrary.getContext().getString(com.unlimiteduniverse.common.R.string.english_name)
                             + "/" + PackagesUtils.getInstance(HttpLibrary.getContext()).getVersionName() + " (" + SysInfoUtil.getPhoneMode() + ";Android" + SysInfoUtil.getOsInfo() + ");");
                     request = original.newBuilder()
                             //设置requestBody的编码格式为json
@@ -102,7 +101,7 @@ public class RequestInterceptor implements Interceptor {
                             getServiceToken(), getServiceUser(), String.valueOf(System.currentTimeMillis())));
                     headersParams.put(DUAGENT, DUAGENT_VALUE);
                     headersParams.put("Connection", "close");
-                    headersParams.put(USER_AGENT, HttpLibrary.getContext().getString(com.delicloud.app.common.R.string.english_name)
+                    headersParams.put(USER_AGENT, HttpLibrary.getContext().getString(com.unlimiteduniverse.common.R.string.english_name)
                             + "/" + PackagesUtils.getInstance(HttpLibrary.getContext()).getVersionName() + " (" + SysInfoUtil.getPhoneMode() + ";Android" + SysInfoUtil.getOsInfo() + ");");
                     request = original.newBuilder()
                             //设置requestBody的编码格式为json
@@ -132,7 +131,7 @@ public class RequestInterceptor implements Interceptor {
                  *解决后台很久再打开连不上网的坑
                  */
                 headersParams.put("Connection", "close");
-                headersParams.put(USER_AGENT, HttpLibrary.getContext().getString(com.delicloud.app.common.R.string.english_name)
+                headersParams.put(USER_AGENT, HttpLibrary.getContext().getString(com.unlimiteduniverse.common.R.string.english_name)
                         + "/" + PackagesUtils.getInstance(HttpLibrary.getContext()).getVersionName() + " (" + SysInfoUtil.getPhoneMode() + ";Android" + SysInfoUtil.getOsInfo() + ");");
                 request = original.newBuilder()
                         .headers(setHeaders(headersParams))
@@ -238,11 +237,11 @@ public class RequestInterceptor implements Interceptor {
     }
 
     private static String getServiceToken() {
-        return PlatformPreference.getUserToken(HttpLibrary.getContext());
+        return "";
     }
 
     private static String getServiceUser() {
-        return PlatformPreference.getUserId(HttpLibrary.getContext());
+        return "";
     }
 
 /*    private static String addDauthHeader(final RequestBody request, String token, String userId) {
