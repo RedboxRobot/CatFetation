@@ -10,6 +10,7 @@ import com.unlimiteduniverse.cat.fetation.AppConstants;
 import com.unlimiteduniverse.cat.fetation.R;
 import com.unlimiteduniverse.cat.fetation.mvp.base.BaseFragment;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.fragment.EditNameFragment;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.fragment.UserSignatureFragment;
 import com.unlimiteduniverse.common.utils.StatusBarUtil;
 
 
@@ -108,9 +109,9 @@ public class ContentActivity extends AppCompatActivity {
             case AppConstants.FRAGMENT_EDIT_NAME:
                 replaceFragment(EditNameFragment.newInstance());
                 break;
-//            case AppConstants.FRAGMENT_EDIT_SIGNATURE:
-//                replaceFragment(UserSignatureFragment.newInstance());
-//                break;
+            case AppConstants.FRAGMENT_EDIT_SIGNATURE:
+                replaceFragment(UserSignatureFragment.newInstance());
+                break;
 //            case AppConstants.SETTING_BASE_FRAGMENT:
 //                replaceFragment(SettingBaseFragment.newInstance());
 //                break;

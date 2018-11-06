@@ -10,4 +10,6 @@
 
     <string name="add_new_cat_title">"新增一只喵喵"</string>
     <string name="user_name_regular">"仅支持输入中英文及数字，字符限制为1~16字符"</string>
+    <string name="user_signature_regular">"仅支持输入中英文、数字及常用字符，字符限制为0~30字符"</string>
+    <string name="signature_info">"请输入个性签名"</string>
 </resources>

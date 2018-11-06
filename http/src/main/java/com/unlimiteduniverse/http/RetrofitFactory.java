@@ -125,7 +125,7 @@ public class RetrofitFactory {
 
     //设置缓存目录
     private static File cacheDirectory = new File(HttpLibrary.getContext()
-            .getCacheDir().getAbsolutePath(), "DeliAssistantCache");
+            .getCacheDir().getAbsolutePath(), "Cache");
     private static Cache cache = new Cache(cacheDirectory, 10 * 1024 * 1024);
 
     private OkHttpClient getOkHttp(boolean isMultiPart) {

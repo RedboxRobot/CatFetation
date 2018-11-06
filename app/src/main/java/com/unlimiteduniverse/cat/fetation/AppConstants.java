@@ -93,6 +93,9 @@ public class AppConstants {
     public static final String SPLICE_PATH_LIST = "key_splice_path_list";
     //用户昵称
     public static final String KEY_USER_NAME = "key_user_name";
+    //签名
+    public static final String KEY_USER_SIGNATURE = "key_user_signature";
+
     //用户的个人信息
     public static final String KEY_USER_INFO = "key_user_info";
     //是否提交用户资料

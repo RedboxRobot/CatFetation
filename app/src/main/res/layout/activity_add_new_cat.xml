@@ -91,6 +91,7 @@
                     android:text="猫名"/>
 
                 <TextView
+                    android:id="@+id/cat_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -134,6 +135,7 @@
                     android:text="性别"/>
 
                 <TextView
+                    android:id="@+id/cat_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -262,6 +264,7 @@
                     android:text="出生日期"/>
 
                 <TextView
+                    android:id="@+id/cat_birthday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -305,6 +308,7 @@
                     android:text="到家日期"/>
 
                 <TextView
+                    android:id="@+id/cat_coming_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -348,8 +352,10 @@
                     android:text="一句话描述"/>
 
                 <TextView
+                    android:id="@+id/describe_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:maxWidth="220dip"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
