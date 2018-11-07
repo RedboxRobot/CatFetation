@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.unlimiteduniverse.cat.fetation.R;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.activity.AddNewCatActivity;
 
 public class HomeActivity extends AppCompatActivity {
 

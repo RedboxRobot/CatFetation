@@ -64,7 +64,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mvp.ui.AddNewCatActivity"
+        <activity android:name=".mvp.ui.cats.activity.AddNewCatActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity

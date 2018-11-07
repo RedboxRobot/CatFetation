@@ -1,4 +1,4 @@
-package com.unlimiteduniverse.cat.fetation.mvp.ui.fragment;
+package com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment;
 
 import android.app.Activity;
 import android.content.Intent;

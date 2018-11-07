@@ -1,8 +1,9 @@
-package com.unlimiteduniverse.cat.fetation.mvp.ui;
+package com.unlimiteduniverse.cat.fetation.mvp.ui.cats.activity;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,19 +16,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.photopicker.PhotoPicker;
 import com.photopicker.PhotoPreview;
+import com.unlimiteduniverse.cat.fetation.AppConstants;
 import com.unlimiteduniverse.cat.fetation.R;
-import com.unlimiteduniverse.cat.fetation.mvp.ui.fragment.EditNameFragment;
-import com.unlimiteduniverse.cat.fetation.mvp.ui.fragment.UserSignatureFragment;
+import com.unlimiteduniverse.cat.fetation.dao.DaoHelper;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.EditNameFragment;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.UserSignatureFragment;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.entity.NewCat;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.entity.NewCatDao;
 import com.unlimiteduniverse.cat.fetation.view.CircleImageView;
+import com.unlimiteduniverse.common.utils.FileOperateUtils;
 import com.unlimiteduniverse.common.utils.PictureUtils;
+import com.unlimiteduniverse.common.utils.SystemFileUtils;
 import com.unlimiteduniverse.common.utils.TimeUtils;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -36,8 +45,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-import static com.unlimiteduniverse.cat.fetation.mvp.ui.fragment.EditNameFragment.KEY_NEW_NAME;
-import static com.unlimiteduniverse.cat.fetation.mvp.ui.fragment.UserSignatureFragment.KEY_NEW_SIGNATURE;
+import static com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.EditNameFragment.KEY_NEW_NAME;
+import static com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.UserSignatureFragment.KEY_NEW_SIGNATURE;
 
 /**
  * Created by Irvin
@@ -73,18 +82,25 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
     TextView mCatName;
     @BindView(R.id.cat_sex)
     TextView mCatSex;
+    @BindView(R.id.cat_weight)
+    TextView mCatWeight;
+    @BindView(R.id.cat_neutering)
+    TextView mCatNeutering;
     @BindView(R.id.cat_birthday)
     TextView mCatBirthday;
     @BindView(R.id.cat_coming_date)
     TextView mCatComingDate;
     @BindView(R.id.describe_content)
-    TextView mDescrible;
+    TextView mDescribe;
 
     Unbinder mUnbinder;
 
     private int mCheckedSexItem = -1;
+    private int mCheckedNeuteringItem = -1;
     private String mDateSet = "";
     private String mComingDate = "";
+    private String avatarOutPutUri;
+    private int neutering = -1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -123,8 +139,41 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_confirm:
+                if (TextUtils.isEmpty(mCatName.getText().toString())) {
+                    Toast.makeText(AddNewCatActivity.this, "名字不能为空", Toast.LENGTH_SHORT);
+                    return true;
+                }
+                //把图片存入data/data下面，保存图片的地址到数据库
+                String output = null;
+                if (!TextUtils.isEmpty(avatarOutPutUri)) {
+                    File imageDir = getDir(AppConstants.IMAGE_SAVE_PATH, MODE_PRIVATE);
+                    String cachePath = imageDir.getPath() + "/" + FileOperateUtils.getFileNameFromPath(avatarOutPutUri);
+                    if (!FileOperateUtils.fileIsExists(cachePath)) {
+                        Bitmap bitmap = FileOperateUtils.fileToBitmap(avatarOutPutUri, cachePath);
+                        if (bitmap != null) {
+                            output = cachePath;
+                        }
+                    }
+                }
 
-        return false;
+                NewCat cat = new NewCat();
+                cat.setCatName(mCatName.getText().toString());
+                cat.setCatAvatar(output);
+                cat.setCatSex(mCatSex.getText().toString());
+                cat.setIsNeutering(neutering);
+                cat.setCatWeight(mCatWeight.getText().toString());
+                cat.setBirthday(mCatBirthday.getText().toString());
+                cat.setComingDay(mCatComingDate.getText().toString());
+                cat.setDescribe(mDescribe.getText().toString());
+
+                NewCatDao newCatDao = DaoHelper.getDbSession().getNewCatDao();
+                newCatDao.insertOrReplace(cat);
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override
@@ -180,6 +229,33 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
             case R.id.weight_container:
                 break;
             case R.id.neutering_container:
+                final AlertDialog neuteringDialog = new AlertDialog.Builder(this, R.style.DialogTheme)
+                        .setTitle("是否绝育")
+                        .setSingleChoiceItems(new String[]{"已绝育", "未绝育"}, mCheckedNeuteringItem, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                mCheckedNeuteringItem = which;
+                            }
+                        })
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                mCatNeutering.setTextColor(getResources().getColor(R.color.high_level_text_color));
+                                switch (mCheckedNeuteringItem) {
+                                    case 0:
+                                        mCatNeutering.setText("已绝育");
+                                        break;
+                                    case 1:
+                                        mCatNeutering.setText("未绝育");
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+                neuteringDialog.setCanceledOnTouchOutside(true);
                 break;
             case R.id.birthday_container:
                 DatePickerDialog dialog = new DatePickerDialog(
@@ -256,7 +332,7 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
 
                 break;
             case R.id.describe_container:
-                UserSignatureFragment.start(this, mDescrible.getText().toString(), REQUEST_CODE_SET_DESCRIBE);
+                UserSignatureFragment.start(this, mDescribe.getText().toString(), REQUEST_CODE_SET_DESCRIBE);
                 break;
             default:
                 break;
@@ -278,6 +354,7 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
                                 @Override
                                 public void onPictureZipDone(Uri uri) {
                                     if (uri != null) {
+                                        avatarOutPutUri = SystemFileUtils.uriToPath(AddNewCatActivity.this, uri);
                                         RequestOptions options = new RequestOptions()
                                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                                 .fitCenter()
@@ -299,7 +376,7 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
                     break;
                 case REQUEST_CODE_SET_DESCRIBE:
                     String newSign = data.getStringExtra(KEY_NEW_SIGNATURE);
-                    mDescrible.setText(newSign);
+                    mDescribe.setText(newSign);
                     break;
                 default:
                     break;

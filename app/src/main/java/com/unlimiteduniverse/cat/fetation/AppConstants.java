@@ -6,6 +6,12 @@ package com.unlimiteduniverse.cat.fetation;
  */
 
 public class AppConstants {
+
+    /**
+     * path
+     */
+    public static final String IMAGE_SAVE_PATH = "image";
+
     /**
      * fragment key
      **/

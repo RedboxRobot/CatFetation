@@ -1,4 +1,4 @@
-package com.unlimiteduniverse.cat.fetation.mvp.ui.fragment;
+package com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -83,7 +83,7 @@ public class EditNameFragment extends SimpleFragment
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mContentActivity.finish();
             }
         });
         toolbar.setTitle("修改昵称");

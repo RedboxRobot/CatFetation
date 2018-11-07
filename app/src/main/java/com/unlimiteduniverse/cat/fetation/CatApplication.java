@@ -2,6 +2,7 @@ package com.unlimiteduniverse.cat.fetation;
 
 import android.app.Application;
 
+import com.unlimiteduniverse.cat.fetation.dao.DaoHelper;
 import com.unlimiteduniverse.http.HttpLibrary;
 
 /**
@@ -14,6 +15,9 @@ public class CatApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        //网络请求模块初始化
         HttpLibrary.init(this);
+        //green dao 初始化
+        DaoHelper.init(this);
     }
 }

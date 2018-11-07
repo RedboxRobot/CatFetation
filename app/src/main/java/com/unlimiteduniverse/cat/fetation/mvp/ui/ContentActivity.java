@@ -9,8 +9,8 @@ import android.view.KeyEvent;
 import com.unlimiteduniverse.cat.fetation.AppConstants;
 import com.unlimiteduniverse.cat.fetation.R;
 import com.unlimiteduniverse.cat.fetation.mvp.base.BaseFragment;
-import com.unlimiteduniverse.cat.fetation.mvp.ui.fragment.EditNameFragment;
-import com.unlimiteduniverse.cat.fetation.mvp.ui.fragment.UserSignatureFragment;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.EditNameFragment;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.UserSignatureFragment;
 import com.unlimiteduniverse.common.utils.StatusBarUtil;
 
 
