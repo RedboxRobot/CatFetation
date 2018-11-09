@@ -20,4 +20,6 @@
     <color name="high_level_text_color">#333333</color>
     <color name="middle_level_text_color">#666666</color>
     <color name="low_level_text_color">#999999</color>
+
+    <color name="bottom_nav_bg_color">#ffffff</color>
 </resources>

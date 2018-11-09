@@ -27,6 +27,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/desc"
-        android:text="生而为了推翻共党！"
+        android:text="我的个人中心！"
         android:textSize="18sp"/>
 </RelativeLayout>
