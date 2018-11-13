@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -58,6 +58,8 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
     public static final int REQUEST_CODE_SET_NAME = 0x01;
     public static final int REQUEST_CODE_SET_DESCRIBE = 0x02;
 
+    @BindView(R.id.add_new_cat_root_view)
+    ConstraintLayout mRootView;
     @BindView(R.id.avatar_container)
     ConstraintLayout mAvatarContainer;
     @BindView(R.id.civ_avatar)
@@ -142,7 +144,9 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
         switch (item.getItemId()) {
             case R.id.menu_confirm:
                 if (TextUtils.isEmpty(mCatName.getText().toString())) {
-                    Toast.makeText(AddNewCatActivity.this, "名字不能为空", Toast.LENGTH_SHORT);
+                    Snackbar snackbar = Snackbar.make(mRootView, "名字不能为空",
+                            Snackbar.LENGTH_SHORT);
+                    snackbar.show();
                     return true;
                 }
                 //把图片存入data/data下面，保存图片的地址到数据库
@@ -164,12 +168,16 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
                 cat.setCatSex(mCatSex.getText().toString());
                 cat.setIsNeutering(neutering);
                 cat.setCatWeight(mCatWeight.getText().toString());
-                cat.setBirthday(mCatBirthday.getText().toString());
-                cat.setComingDay(mCatComingDate.getText().toString());
+                cat.setBirthday(TimeUtils.str2TimeSeconds(mCatBirthday.getText().toString()));
+                cat.setComingDay(TimeUtils.str2TimeSeconds(mCatComingDate.getText().toString()));
                 cat.setDescribe(mDescribe.getText().toString());
 
                 NewCatDao newCatDao = DaoHelper.getDbSession().getNewCatDao();
                 newCatDao.insertOrReplace(cat);
+                Snackbar snackbar = Snackbar.make(mRootView, "添加成功",
+                        Snackbar.LENGTH_SHORT);
+                snackbar.show();
+                finish();
                 return true;
             default:
                 return false;

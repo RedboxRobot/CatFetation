@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_white"
+    android:foreground="?selectableItemBackground"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:paddingLeft="@dimen/layout_margin_15"
+        android:paddingRight="@dimen/layout_margin_15"
+        android:paddingTop="@dimen/layout_margin_15"
+        android:paddingBottom="@dimen/layout_margin_15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/cat_list_name"
+            android:layout_marginTop="@dimen/layout_margin_15"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="毛球"/>
+
+        <TextView
+            android:id="@+id/cat_list_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin_10"
+            app:layout_constraintTop_toBottomOf="@id/cat_list_name"
+            tools:text="未绝育" />
+
+        <TextView
+            android:id="@+id/cat_list_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_10"
+            app:layout_constraintTop_toTopOf="@id/cat_list_status"
+            app:layout_constraintBottom_toBottomOf="@id/cat_list_status"
+            app:layout_constraintLeft_toRightOf="@id/cat_list_status"
+            tools:text="1岁"/>
+
+        <TextView
+            android:id="@+id/cat_list_weight"
+            android:layout_marginTop="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cat_list_status"
+            tools:text="体重4.8kg"/>
+
+        <TextView
+            android:id="@+id/cat_list_describe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin_10"
+            app:layout_constraintTop_toBottomOf="@id/cat_list_weight"
+            tools:text="爱吃的美少女"/>
+
+        <TextView
+            android:id="@+id/cat_list_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cat_list_describe"
+            android:layout_marginTop="@dimen/layout_margin_10"
+            tools:text="2017-5-12"/>
+
+        <com.unlimiteduniverse.cat.fetation.view.CircleImageView
+            android:id="@+id/cat_list_avatar"
+            android:layout_width="@dimen/item_height_100"
+            android:layout_height="@dimen/item_height_100"
+            android:scaleType="centerCrop"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:src="@mipmap/icon_cat"/>
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

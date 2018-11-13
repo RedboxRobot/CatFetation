@@ -19,12 +19,12 @@ public class NewCat {
     String catSex;
     String catWeight;
     int isNeutering;
-    String birthday;
-    String comingDay;
+    long birthday;
+    long comingDay;
     String describe;
-    @Generated(hash = 1238199174)
+    @Generated(hash = 1507939522)
     public NewCat(Long id, @NotNull String catName, String catAvatar, String catSex,
-            String catWeight, int isNeutering, String birthday, String comingDay,
+            String catWeight, int isNeutering, long birthday, long comingDay,
             String describe) {
         this.id = id;
         this.catName = catName;
@@ -75,16 +75,16 @@ public class NewCat {
     public void setIsNeutering(int isNeutering) {
         this.isNeutering = isNeutering;
     }
-    public String getBirthday() {
+    public long getBirthday() {
         return this.birthday;
     }
-    public void setBirthday(String birthday) {
+    public void setBirthday(long birthday) {
         this.birthday = birthday;
     }
-    public String getComingDay() {
+    public long getComingDay() {
         return this.comingDay;
     }
-    public void setComingDay(String comingDay) {
+    public void setComingDay(long comingDay) {
         this.comingDay = comingDay;
     }
     public String getDescribe() {
