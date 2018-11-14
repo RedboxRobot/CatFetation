@@ -1,11 +1,9 @@
-package com.unlimiteduniverse.common.utils;
+package com.kprogresshud;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
-
-import com.kprogresshud.KProgressHUD;
 
 /**
  * date: 2017/8/7

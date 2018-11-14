@@ -8,7 +8,7 @@ import com.google.gson.JsonSyntaxException;
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 import com.unlimiteduniverse.cat.fetation.http.ApiService;
 import com.unlimiteduniverse.common.utils.GsonHelper;
-import com.unlimiteduniverse.common.utils.ProgressUtil;
+import com.kprogresshud.ProgressUtil;
 import com.unlimiteduniverse.http.RetrofitFactory;
 import com.unlimiteduniverse.http.base.BaseResponse;
 import com.unlimiteduniverse.http.utils.ExceptionHandler;

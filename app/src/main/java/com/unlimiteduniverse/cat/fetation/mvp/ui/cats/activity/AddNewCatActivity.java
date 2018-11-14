@@ -9,13 +9,18 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -31,10 +36,14 @@ import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.UserSignatureFrag
 import com.unlimiteduniverse.cat.fetation.mvp.ui.entity.NewCat;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.entity.NewCatDao;
 import com.unlimiteduniverse.cat.fetation.view.CircleImageView;
+import com.unlimiteduniverse.common.sysutils.ScreenUtil;
+import com.unlimiteduniverse.common.utils.CheckEmptyUtils;
 import com.unlimiteduniverse.common.utils.FileOperateUtils;
 import com.unlimiteduniverse.common.utils.PictureUtils;
 import com.unlimiteduniverse.common.utils.SystemFileUtils;
 import com.unlimiteduniverse.common.utils.TimeUtils;
+import com.unlimiteduniverse.common.utils.XEditUtils;
+import com.unlimiteduniverse.uikit.dialog.CustomBuilderDialog;
 import com.youngfeng.snake.Snake;
 import com.youngfeng.snake.annotations.EnableDragToClose;
 
@@ -239,6 +248,39 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
                 alertDialog.setCanceledOnTouchOutside(true);
                 break;
             case R.id.weight_container:
+                CustomBuilderDialog.Builder builder = new CustomBuilderDialog.Builder(AddNewCatActivity.this);
+                final CustomBuilderDialog weightDialog = builder.cancelTouchout(true)
+                        .view(R.layout.dialog_set_weight)
+                        .build();
+                weightDialog.show();
+                weightDialog.getWindow().setLayout((int) (ScreenUtil.getDisplayWidth() * 0.9), ViewGroup.LayoutParams.WRAP_CONTENT);
+                final EditText editText = (EditText) weightDialog.getView(R.id.dialog_edit);
+                editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(16)});
+                editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+                new XEditUtils().set(editText, AppConstants.LETTER_NUMBER_ONLY, "请输入数字");
+                if (!"请输入名称".equals(mCatWeight.getText())) {
+                    editText.setText(mCatWeight.getText());
+                    editText.setSelection(mCatWeight.getText().length());
+                }
+                TextView title = ((TextView) weightDialog.getView(R.id.dialog_title));
+                title.setText("输入猫咪的体重（单位kg）");
+                weightDialog.getView(R.id.dialog_positive).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!CheckEmptyUtils.checkIsEmpty(editText,AddNewCatActivity.this,
+                                CheckEmptyUtils.FLAG_SOME_KIND_OF_NAME_NOT_NULL)) {
+                            mCatWeight.setText(editText.getText().toString());
+                            mCatWeight.setTextColor(ContextCompat.getColor(AddNewCatActivity.this, R.color.high_level_text_color));
+                        }
+                        weightDialog.dismiss();
+                    }
+                });
+                weightDialog.getView(R.id.dialog_negative).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        weightDialog.dismiss();
+                    }
+                });
                 break;
             case R.id.neutering_container:
                 final AlertDialog neuteringDialog = new AlertDialog.Builder(this, R.style.DialogTheme)

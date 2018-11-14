@@ -22,6 +22,7 @@ public class AppConstants {
      * 正则表达式
      */
     public static final String LETTER_NUMBER = "[a-zA-Z\\d]*";  //字母或数字
+    public static final String LETTER_NUMBER_ONLY = "[\\d]*";  //字母或数字
     public static final String LETTER_NUMBER_CHINESE_ENGLISH = "^[\\u4E00-\\u9FA5A-Za-z0-9]+$";  //中英文数字
     public static final String LETTER_NUMBER_CHINESE_ENGLISH_BLOCK = "^[\\u4E00-\\u9FA5A-Za-z0-9\\s]+$";  //中英文数字加空格
 

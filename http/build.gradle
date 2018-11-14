@@ -48,4 +48,5 @@ dependencies {
     implementation "com.trello:rxlifecycle-components:0.3.0"
 
     implementation project(path: ':common')
+    implementation project(path: ':uikit')
 }

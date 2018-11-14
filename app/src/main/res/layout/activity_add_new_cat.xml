@@ -203,7 +203,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginEnd="@dimen/layout_margin_15"
                     android:textSize="@dimen/text_size_15"
-                    android:textColor="@color/colorTextMain"
+                    android:textColor="@color/colorTextLow"
                     android:gravity="center_vertical"
                     android:text="Kg"/>
 

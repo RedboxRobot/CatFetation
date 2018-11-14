@@ -3,6 +3,7 @@ package com.unlimiteduniverse.cat.fetation;
 import android.app.Application;
 
 import com.unlimiteduniverse.cat.fetation.dao.DaoHelper;
+import com.unlimiteduniverse.common.sysutils.ScreenUtil;
 import com.unlimiteduniverse.http.HttpLibrary;
 import com.youngfeng.snake.Snake;
 
@@ -22,5 +23,6 @@ public class CatApplication extends Application {
         DaoHelper.init(this);
         // 对Snake进行初始化
         Snake.init(this);
+        ScreenUtil.init(this);
     }
 }

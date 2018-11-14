@@ -1,6 +1,7 @@
 package com.unlimiteduniverse.cat.fetation.mvp.ui.home.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -64,8 +65,15 @@ public class CatListAdapter extends BaseQuickAdapter<NewCat, BaseViewHolder, Rec
     private void setCatAvatar(BaseViewHolder helper, NewCat item) {
         RequestOptions options = new RequestOptions()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .fitCenter()
-                .override(250, 250);
+                .fitCenter();
+
+        if (TextUtils.isEmpty(item.getCatAvatar())) {
+            Glide.with(helper.getContext())
+                    .load(R.mipmap.icon_cat)
+                    .apply(options)
+                    .into(mCatAvatar);
+            return;
+        }
 
         Glide.with(helper.getContext())
                 .load(item.getCatAvatar())

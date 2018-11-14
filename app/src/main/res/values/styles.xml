@@ -58,4 +58,14 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
+    <style name="WeightEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/dialog_edit_text_background</item>
+        <item name="android:textCursorDrawable">@drawable/dialog_color_cursor</item>
+        <item name="colorControlNormal">#cccccc</item>
+        <!-- 文字和下划线的间距 -->
+        <item name="android:paddingBottom">5dp</item>
+        <!-- 文字和drawable直接的距离 -->
+        <item name="android:drawablePadding">5dp</item>
+        <item name="colorControlActivated">#cccccc</item>
+    </style>
 </resources>
