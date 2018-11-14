@@ -74,7 +74,8 @@ public class CatListAdapter extends BaseQuickAdapter<NewCat, BaseViewHolder, Rec
     }
 
     private void setCatBirthday(NewCat item) {
-        mCatBirthday.setText(TimeUtils.timestamp2String(item.getBirthday(), null));
+        String bir = TimeUtils.timestamp2String(item.getBirthday(), null);
+        mCatBirthday.setText(bir);
     }
 
     private void setCatStatus(NewCat item) {

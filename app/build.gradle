@@ -42,6 +42,10 @@ dependencies {
     implementation 'com.hannesdorfmann.mosby:mvp:2.0.1'
     implementation 'com.hannesdorfmann.mosby:viewstate:2.0.1'
 
+    //Snake 侧滑发回
+    implementation 'com.youngfeng.android:snake:0.3.0'
+    annotationProcessor 'com.youngfeng.android:snake-compiler:0.3.0'
+
     /* okhttp */
     implementation "com.squareup.okhttp3:okhttp:3.10.0"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'

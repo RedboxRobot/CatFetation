@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,6 +44,8 @@ public class CatHomeFragment extends Fragment {
     private ActionBarDrawerToggle drawerToggle;
     @BindView(R.id.cat_list)
     RecyclerView mCatList;
+    @BindView(R.id.cat_list_srl)
+    SwipeRefreshLayout srl;
 
     private CatListAdapter mAdapter;
 
@@ -126,6 +129,19 @@ public class CatHomeFragment extends Fragment {
     }
 
     private void initView() {
+        int start = getResources().getDimensionPixelSize(R.dimen.swipe_refresh_layout_offset_start);
+        int end = getResources().getDimensionPixelSize(R.dimen.swipe_refresh_layout_offset_end);
+        srl.setProgressViewOffset(true, start, end);
+
+        //下拉刷新
+        srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mAdapter.clearData();
+                initData();
+            }
+        });
+
         LinearLayoutManager llm = new LinearLayoutManager(mHomeActivity, LinearLayoutManager.VERTICAL, false);
         mCatList.setLayoutManager(llm);
         mCatList.addItemDecoration(new SimpleDividerItemDecoration(mHomeActivity, new ColorDrawable(Color.TRANSPARENT), 20));
@@ -136,5 +152,9 @@ public class CatHomeFragment extends Fragment {
         List<NewCat> catList = newCatDao.queryRaw("", null);
         mAdapter = new CatListAdapter(mCatList, R.layout.item_cat_list, catList);
         mCatList.setAdapter(mAdapter);
+        mAdapter.notifyDataSetChanged();
+        if (srl != null) {
+            srl.setRefreshing(false);
+        }
     }
 }

@@ -16,4 +16,8 @@
     <dimen name="text_size_18">18sp</dimen>
 
     <dimen name="toolbar_title_padding">10dp</dimen>
+
+    <!--发现页SwipeRefreshLayout 偏移-->
+    <dimen name="swipe_refresh_layout_offset_start">24dp</dimen>
+    <dimen name="swipe_refresh_layout_offset_end">56dp</dimen>
 </resources>

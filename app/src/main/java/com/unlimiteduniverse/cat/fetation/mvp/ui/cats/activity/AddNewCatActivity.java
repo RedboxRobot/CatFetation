@@ -35,6 +35,8 @@ import com.unlimiteduniverse.common.utils.FileOperateUtils;
 import com.unlimiteduniverse.common.utils.PictureUtils;
 import com.unlimiteduniverse.common.utils.SystemFileUtils;
 import com.unlimiteduniverse.common.utils.TimeUtils;
+import com.youngfeng.snake.Snake;
+import com.youngfeng.snake.annotations.EnableDragToClose;
 
 import java.io.File;
 import java.util.Calendar;
@@ -53,6 +55,7 @@ import static com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.UserSignat
  * Date: on 2018/10/8 0008.
  */
 
+@EnableDragToClose()
 public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener {
 
     public static final int REQUEST_CODE_SET_NAME = 0x01;
@@ -110,6 +113,7 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
         setContentView(R.layout.activity_add_new_cat);
 
         mUnbinder = ButterKnife.bind(this);
+        Snake.host(this);
         initializeToolbar();
         initView();
     }

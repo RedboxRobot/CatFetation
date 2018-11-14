@@ -50,7 +50,7 @@ public class TimeUtils {
             format = "yyyy-MM-dd";
         }
         SimpleDateFormat sdf = new SimpleDateFormat(format);
-        return sdf.format(new Date(timestamp));
+        return sdf.format(new Date(timestamp * 1000));
     }
 
     @SuppressLint("SimpleDateFormat")

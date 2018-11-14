@@ -12,6 +12,8 @@ import com.unlimiteduniverse.cat.fetation.mvp.base.BaseFragment;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.EditNameFragment;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.fragment.UserSignatureFragment;
 import com.unlimiteduniverse.common.utils.StatusBarUtil;
+import com.youngfeng.snake.Snake;
+import com.youngfeng.snake.annotations.EnableDragToClose;
 
 
 /**
@@ -19,6 +21,7 @@ import com.unlimiteduniverse.common.utils.StatusBarUtil;
  * on 2017/8/23 0023.
  */
 
+@EnableDragToClose()
 public class ContentActivity extends AppCompatActivity {
 
     private Fragment resultFragment;
@@ -30,6 +33,7 @@ public class ContentActivity extends AppCompatActivity {
         setContentView(R.layout.content_activity);
         Intent intent = getIntent();
 
+        Snake.host(this);
         switchFragment(intent);
     }
 

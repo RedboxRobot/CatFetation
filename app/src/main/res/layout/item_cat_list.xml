@@ -47,7 +47,7 @@
 
         <TextView
             android:id="@+id/cat_list_weight"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/cat_list_status"

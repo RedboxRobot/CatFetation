@@ -21,8 +21,7 @@ import com.unlimiteduniverse.common.utils.XEditUtils;
  * @time 2018/9/6
  */
 
-public class EditNameFragment extends SimpleFragment
-        implements Toolbar.OnMenuItemClickListener {
+public class EditNameFragment extends SimpleFragment implements Toolbar.OnMenuItemClickListener {
 
     public static final String KEY_NEW_NAME = "key_new_name";
     private XEditText editName;
@@ -51,7 +50,7 @@ public class EditNameFragment extends SimpleFragment
     }
 
     public static EditNameFragment newInstance() {
-        EditNameFragment fragment = new EditNameFragment();
+        EditNameFragment fragment =  new EditNameFragment();
         return fragment;
     }
 
