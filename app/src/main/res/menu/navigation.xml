@@ -4,16 +4,16 @@
     <item
         android:id="@+id/navigation_print"
         android:icon="@drawable/ic_print_white_24dp"
-        android:title="家" />
+        android:title="大厅" />
 
     <item
         android:id="@+id/navigation_discovery"
         android:icon="@drawable/ic_discovery_white_24dp"
-        android:title="发现" />
+        android:title="繁育室" />
 
     <item
         android:id="@+id/navigation_user_center"
         android:icon="@drawable/ic_user_white_24dp"
-        android:title="我" />
+        android:title="关于我们" />
 
 </menu>

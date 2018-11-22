@@ -23,14 +23,4 @@
         app:itemIconTint="@color/bottom_nav_view_menu_color"
         app:itemTextColor="@color/bottom_nav_view_menu_color"
         app:menu="@menu/navigation" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/navigation"
-        android:layout_margin="@dimen/fab_margin"
-        android:layout_alignParentEnd="true"
-        app:srcCompat="@drawable/float_action_button_plus" />
-
 </RelativeLayout>

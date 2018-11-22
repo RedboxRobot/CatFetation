@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.unlimiteduniverse.cat.fetation.R;
-import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.activity.AddNewCatActivity;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.home.fragment.CatHomeFragment;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.home.fragment.OtherFragment;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.home.fragment.PregnantCatFragment;
@@ -78,25 +76,7 @@ public class HomeActivity extends AppCompatActivity {
         mCatHomeFragment = new CatHomeFragment();
         mPregnantCatFragment = new PregnantCatFragment();
         mOtherFragment = new OtherFragment();
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, AddNewCatActivity.class));
-            }
-        });
         setDefaultFirstFragment();
-    }
-
-    private int getSystemStatusBarHeight() {
-        int statusBarHeight = 0;
-        //获取status_bar_height资源的ID
-        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            //根据资源ID获取响应的尺寸值
-            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
-        }
-        return statusBarHeight;
     }
 
     private void setDefaultFirstFragment() {

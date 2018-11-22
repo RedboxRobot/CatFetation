@@ -1,10 +1,12 @@
 package com.unlimiteduniverse.cat.fetation.mvp.ui.home.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 
 import com.unlimiteduniverse.cat.fetation.R;
 import com.unlimiteduniverse.cat.fetation.dao.DaoHelper;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.cats.activity.AddNewCatActivity;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.entity.NewCat;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.entity.NewCatDao;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.home.HomeActivity;
@@ -78,7 +81,7 @@ public class CatHomeFragment extends Fragment {
     private void initializeToolbar() {
         drawerLayout = (DrawerLayout) mHomeActivity.findViewById(R.id.drawer_layout);
         navigation = (NavigationView) mHomeActivity.findViewById(R.id.drawer_navigation);
-        Toolbar toolbar = (Toolbar) mHomeActivity.findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) mHomeActivity.findViewById(R.id.cat_home_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,6 +132,14 @@ public class CatHomeFragment extends Fragment {
     }
 
     private void initView() {
+        FloatingActionButton fab = (FloatingActionButton) mHomeActivity.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(mHomeActivity, AddNewCatActivity.class));
+            }
+        });
+
         int start = getResources().getDimensionPixelSize(R.dimen.swipe_refresh_layout_offset_start);
         int end = getResources().getDimensionPixelSize(R.dimen.swipe_refresh_layout_offset_end);
         srl.setProgressViewOffset(true, start, end);
@@ -156,5 +167,11 @@ public class CatHomeFragment extends Fragment {
         if (srl != null) {
             srl.setRefreshing(false);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mUnbinder.unbind();
     }
 }

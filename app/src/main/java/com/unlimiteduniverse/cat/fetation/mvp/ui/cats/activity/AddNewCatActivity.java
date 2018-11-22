@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -187,9 +188,7 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
 
                 NewCatDao newCatDao = DaoHelper.getDbSession().getNewCatDao();
                 newCatDao.insertOrReplace(cat);
-                Snackbar snackbar = Snackbar.make(mRootView, "添加成功",
-                        Snackbar.LENGTH_SHORT);
-                snackbar.show();
+                Toast.makeText(AddNewCatActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
                 finish();
                 return true;
             default:
@@ -263,7 +262,7 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
                     editText.setSelection(mCatWeight.getText().length());
                 }
                 TextView title = ((TextView) weightDialog.getView(R.id.dialog_title));
-                title.setText("输入猫咪的体重（单位kg）");
+                title.setText(R.string.input_weight);
                 weightDialog.getView(R.id.dialog_positive).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
