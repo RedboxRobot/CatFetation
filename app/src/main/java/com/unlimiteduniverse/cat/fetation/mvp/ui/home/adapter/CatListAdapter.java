@@ -2,12 +2,14 @@ package com.unlimiteduniverse.cat.fetation.mvp.ui.home.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.unlimiteduniverse.cat.fetation.AppConstants;
 import com.unlimiteduniverse.cat.fetation.R;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.entity.NewCat;
 import com.unlimiteduniverse.common.recyclerview.adapter.BaseQuickAdapter;
@@ -23,6 +25,7 @@ import java.util.List;
 public class CatListAdapter extends BaseQuickAdapter<NewCat, BaseViewHolder, RecyclerView> {
 
     private TextView mCatName;
+    private ImageView mCatSex;
     private ImageView mCatAvatar;
     private TextView mCatStatus;
 
@@ -40,6 +43,7 @@ public class CatListAdapter extends BaseQuickAdapter<NewCat, BaseViewHolder, Rec
         inflateView(helper);
 
         setCatName(item);
+        setCatSex(item);
         setCatAvatar(helper, item);
         setCatAge(item);
         setCatBirthday(item);
@@ -49,7 +53,8 @@ public class CatListAdapter extends BaseQuickAdapter<NewCat, BaseViewHolder, Rec
     }
 
     private void inflateView(BaseViewHolder helper) {
-        mCatName =  helper.getView(R.id.cat_list_name);
+        mCatName = helper.getView(R.id.cat_list_name);
+        mCatSex = helper.getView(R.id.cat_list_sex);
         mCatAge = helper.getView(R.id.cat_list_age);
         mCatAvatar = helper.getView(R.id.cat_list_avatar);
         mCatStatus = helper.getView(R.id.cat_list_status);
@@ -60,6 +65,14 @@ public class CatListAdapter extends BaseQuickAdapter<NewCat, BaseViewHolder, Rec
 
     private void setCatName(NewCat item) {
         mCatName.setText(item.getCatName());
+    }
+
+    private void setCatSex(NewCat item) {
+        if (item.getCatSex().equals("男")) {
+            mCatSex.setImageResource(R.mipmap.ic_sex_men);
+        } else {
+            mCatSex.setImageResource(R.mipmap.ic_sex_women);
+        }
     }
 
     private void setCatAvatar(BaseViewHolder helper, NewCat item) {
@@ -87,18 +100,40 @@ public class CatListAdapter extends BaseQuickAdapter<NewCat, BaseViewHolder, Rec
     }
 
     private void setCatStatus(NewCat item) {
-
+        mCatStatus.setVisibility(View.VISIBLE);
+        if (item.getIsNeutering() == AppConstants.NEUTERING) {
+            mCatStatus.setText("已绝育");
+        } else if (item.getIsNeutering() == AppConstants.UNNEUTERING) {
+            mCatStatus.setText("未绝育");
+        } else {
+            mCatStatus.setVisibility(View.GONE);
+        }
     }
 
     private void setCatAge(NewCat item) {
-        mCatAge.setText(TimeUtils.getAgeByBirthday(item.getBirthday()));
+        if (item.getBirthday() == 0) {
+           mCatAge.setVisibility(View.GONE);
+        } else {
+            mCatAge.setVisibility(View.VISIBLE);
+            mCatAge.setText(TimeUtils.getAgeByBirthday(item.getBirthday()));
+        }
     }
 
     private void setCatDescribe(NewCat item) {
-        mCatDescribe.setText(item.getDescribe());
+        if (TextUtils.isEmpty(item.getDescribe())) {
+            mCatDescribe.setVisibility(View.GONE);
+        } else {
+            mCatDescribe.setVisibility(View.VISIBLE);
+            mCatDescribe.setText(item.getDescribe());
+        }
     }
 
     private void setCatWeight(NewCat item) {
-        mCatWeight.setText(item.getCatWeight() + "kg");
+        if (!TextUtils.isEmpty(item.getCatWeight())) {
+            mCatWeight.setText(String.format("%skg", item.getCatWeight()));
+            mCatWeight.setVisibility(View.VISIBLE);
+        } else {
+            mCatWeight.setVisibility(View.GONE);
+        }
     }
 }

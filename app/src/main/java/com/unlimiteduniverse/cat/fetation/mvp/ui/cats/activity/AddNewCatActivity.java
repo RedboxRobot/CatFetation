@@ -297,9 +297,11 @@ public class AddNewCatActivity extends AppCompatActivity implements Toolbar.OnMe
                                 switch (mCheckedNeuteringItem) {
                                     case 0:
                                         mCatNeutering.setText("已绝育");
+                                        neutering = AppConstants.NEUTERING;
                                         break;
                                     case 1:
                                         mCatNeutering.setText("未绝育");
+                                        neutering = AppConstants.UNNEUTERING;
                                         break;
                                     default:
                                         break;

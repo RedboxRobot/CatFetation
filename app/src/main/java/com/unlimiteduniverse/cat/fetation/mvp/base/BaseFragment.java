@@ -1,19 +1,19 @@
 package com.unlimiteduniverse.cat.fetation.mvp.base;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hannesdorfmann.mosby.mvp.MvpFragment;
 
-public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V>> extends
+public abstract class BaseFragment<A extends AppCompatActivity, V extends BaseView, P extends BasePresenter<V>> extends
         MvpFragment<V, P> implements View.OnClickListener {
 
-    protected Activity mContentActivity;
+    protected A mContentActivity;
     protected Fragment mFragment;
 
     private View mRootView;
@@ -25,7 +25,10 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
         //显示fragment中的menu
         setHasOptionsMenu(true);
 
-        mContentActivity = getActivity();
+        mContentActivity = getAppActivity();
+        if (mContentActivity == null) {
+            throw new IllegalArgumentException("Activity must not be null!");
+        }
         mFragment = this;
     }
 
@@ -78,6 +81,8 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
     public void onBackClick() {
     }
     //-------------- abstract ------------------
+
+    public abstract A getAppActivity();
 
     public abstract int getRootViewId();
 

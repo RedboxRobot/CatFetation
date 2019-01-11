@@ -1,6 +1,7 @@
 package com.unlimiteduniverse.cat.fetation.mvp.base;
 
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 
 import com.unlimiteduniverse.cat.fetation.api.HandleBackInterface;
 import com.unlimiteduniverse.cat.fetation.utils.HandleBackUtil;
@@ -10,7 +11,7 @@ import com.unlimiteduniverse.cat.fetation.utils.HandleBackUtil;
  * on 2018/7/13 0022.
  */
 
-public abstract class SimpleFragment extends BaseFragment<BaseView, BasePresenter<BaseView>> implements HandleBackInterface {
+public abstract class SimpleFragment<A extends AppCompatActivity> extends BaseFragment<A, BaseView, BasePresenter<BaseView>> implements HandleBackInterface {
 
     @NonNull
     @Override

@@ -29,6 +29,7 @@ import com.unlimiteduniverse.cat.fetation.mvp.ui.entity.NewCatDao;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.home.HomeActivity;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.home.adapter.CatListAdapter;
 import com.unlimiteduniverse.common.recyclerview.decoration.SimpleDividerItemDecoration;
+import com.unlimiteduniverse.common.sysutils.ScreenUtil;
 
 import java.util.List;
 
@@ -155,7 +156,7 @@ public class CatHomeFragment extends Fragment {
 
         LinearLayoutManager llm = new LinearLayoutManager(mHomeActivity, LinearLayoutManager.VERTICAL, false);
         mCatList.setLayoutManager(llm);
-        mCatList.addItemDecoration(new SimpleDividerItemDecoration(mHomeActivity, new ColorDrawable(Color.TRANSPARENT), 20));
+        mCatList.addItemDecoration(new SimpleDividerItemDecoration(mHomeActivity, new ColorDrawable(Color.TRANSPARENT), ScreenUtil.dip2px(10)));
     }
 
     private void initData() {

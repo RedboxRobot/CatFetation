@@ -16,7 +16,7 @@ import android.view.View;
 
 import com.unlimiteduniverse.cat.fetation.R;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.home.fragment.CatHomeFragment;
-import com.unlimiteduniverse.cat.fetation.mvp.ui.home.fragment.OtherFragment;
+import com.unlimiteduniverse.cat.fetation.mvp.ui.home.fragment.AboutUsFragment;
 import com.unlimiteduniverse.cat.fetation.mvp.ui.home.fragment.PregnantCatFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -28,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     private FragmentManager mFragmentManager;
     private CatHomeFragment mCatHomeFragment;
     private PregnantCatFragment mPregnantCatFragment;
-    private OtherFragment mOtherFragment;
+    private AboutUsFragment mAboutUsFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
                     showFragment(mPregnantCatFragment, FRAGMENT_FLAG_PREGNANT_CAT);
                     return true;
                 case R.id.navigation_user_center:
-                    showFragment(mOtherFragment, FRAGMENT_FLAG_OTHER);
+                    showFragment(mAboutUsFragment, FRAGMENT_FLAG_OTHER);
                     return true;
             }
             return false;
@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
         mCatHomeFragment = new CatHomeFragment();
         mPregnantCatFragment = new PregnantCatFragment();
-        mOtherFragment = new OtherFragment();
+        mAboutUsFragment = new AboutUsFragment();
         setDefaultFirstFragment();
     }
 
@@ -109,7 +109,7 @@ public class HomeActivity extends AppCompatActivity {
     public void hideAllFragment(FragmentTransaction fragmentTransaction) {
         hideFragment(fragmentTransaction, mCatHomeFragment);
         hideFragment(fragmentTransaction, mPregnantCatFragment);
-        hideFragment(fragmentTransaction, mOtherFragment);
+        hideFragment(fragmentTransaction, mAboutUsFragment);
     }
 
     private void hideFragment(FragmentTransaction fragmentTransaction, Fragment fragment) {

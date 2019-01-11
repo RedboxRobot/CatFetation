@@ -46,6 +46,9 @@ dependencies {
     implementation 'com.youngfeng.android:snake:0.3.0'
     annotationProcessor 'com.youngfeng.android:snake-compiler:0.3.0'
 
+    //Auto Size
+    implementation 'me.jessyan:autosize:1.1.1'
+
     /* okhttp */
     implementation "com.squareup.okhttp3:okhttp:3.10.0"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'

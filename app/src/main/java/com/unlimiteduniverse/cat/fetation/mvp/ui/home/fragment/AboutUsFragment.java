@@ -2,10 +2,10 @@ package com.unlimiteduniverse.cat.fetation.mvp.ui.home.fragment;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.unlimiteduniverse.cat.fetation.R;
 import com.unlimiteduniverse.cat.fetation.mvp.base.SimpleFragment;
@@ -20,11 +20,10 @@ import butterknife.Unbinder;
  * @author Irvin
  * @time 2018/11/9 0009
  */
-public class PregnantCatFragment extends SimpleFragment<HomeActivity> {
+public class AboutUsFragment extends SimpleFragment<HomeActivity> {
 
-    @BindView(R.id.litter_list)
-    RecyclerView mRecyclerView;
-
+    @BindView(R.id.about_us_content)
+    TextView mTextView;
     Unbinder mUnbinder;
 
     @Override
@@ -34,18 +33,13 @@ public class PregnantCatFragment extends SimpleFragment<HomeActivity> {
 
     @Override
     public int getRootViewId() {
-        return R.layout.fragment_pregnant_cat;
+        return R.layout.fragment_other;
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
         mUnbinder = ButterKnife.bind(this, getRootView());
         initializeToolbar();
-        initList();
-    }
-
-    private void initList() {
-
     }
 
     private void initializeToolbar() {
@@ -54,7 +48,7 @@ public class PregnantCatFragment extends SimpleFragment<HomeActivity> {
             @Override
             public void run() {
                 if (toolbar.getMeasuredHeight() == 0) {
-                    mRecyclerView.postDelayed(this, 50);
+                    mTextView.postDelayed(this, 50);
                 } else {
                     int height = toolbar.getMeasuredHeight();
                     AppBarLayout.LayoutParams lp = new AppBarLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -70,7 +64,7 @@ public class PregnantCatFragment extends SimpleFragment<HomeActivity> {
 
             }
         });
-        toolbar.setTitle("繁育室");
+        toolbar.setTitle("关于我们");
         //设置toolbar
         mContentActivity.setSupportActionBar(toolbar);
         //左上角返回图标
@@ -86,6 +80,7 @@ public class PregnantCatFragment extends SimpleFragment<HomeActivity> {
     public void onClick(View v) {
 
     }
+
 
     @Override
     public void onDestroy() {

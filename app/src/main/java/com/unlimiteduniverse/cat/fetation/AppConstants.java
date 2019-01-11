@@ -165,4 +165,7 @@ public class AppConstants {
     public static final String KEY_USER_HOME_FRAGMENT_CHECKEDID = "key_user_home_fragment_checkedid";
     //搜索的标签
     public static final String KEY_SEARCH_TAG = "key_search_tag";
+
+    public static final int NEUTERING = 0;
+    public static final int UNNEUTERING = 1;
 }
